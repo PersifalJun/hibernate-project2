@@ -22,19 +22,18 @@ public class Film {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "text")
-    @Type(type = "text")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "release_year",columnDefinition = "year")
     private Year year;
 
     @ManyToOne
-    @JoinColumn(name = "lanuage_id")
+    @JoinColumn(name = "language_id")
     private Language language;
 
     @ManyToOne
-    @JoinColumn(name = "original_lanuage_id")
+    @JoinColumn(name = "original_language_id")
     private Language originalLanguage;
 
 
@@ -48,9 +47,9 @@ public class Film {
     private Short length;
 
     @Column(name = "replacement_cost")
-    private Byte replacementCost;
+    private BigDecimal replacementCost;
 
-    @Column(name = "replacement_cost",columnDefinition = "enum('G', 'PG', 'PG-13', 'R', 'NC-17')")
+    @Column(name = "rating",columnDefinition = "enum('G', 'PG', 'PG-13', 'R', 'NC-17')")
     private Rating rating;
 
     @Column(name = "special_features",columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
@@ -109,7 +108,7 @@ public class Film {
         return length;
     }
 
-    public Byte getReplacementCost() {
+    public BigDecimal getReplacementCost() {
         return replacementCost;
     }
 
@@ -169,7 +168,7 @@ public class Film {
         this.length = length;
     }
 
-    public void setReplacementCost(Byte replacementCost) {
+    public void setReplacementCost(BigDecimal replacementCost) {
         this.replacementCost = replacementCost;
     }
 

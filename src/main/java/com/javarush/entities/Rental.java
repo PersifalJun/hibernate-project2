@@ -11,7 +11,7 @@ public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rental_id")
-    private Short id;
+    private Integer id;
 
     @Column(name = "rental_date")
     private LocalDateTime rentalDate;
@@ -35,7 +35,7 @@ public class Rental {
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
-    public Short getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -64,7 +64,7 @@ public class Rental {
     }
 
 
-    public void setId(Short id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
